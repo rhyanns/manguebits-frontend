@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+.fontPixel {
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* cores de fundo */
+.bg-green-400 {
+    background-color: #41503E; /* verde claro */
+}
+
+.bg-green-500 {
+    background-color: #3D4C3A; /* verde */
+}
+
+.bg-green-600 {
+    background-color: #374734; /* verde */
+}
+
+.bg-green-700 {
+    background-color: #041700; /* verde escuro */
+}
+
+.bg-gray-500 {
+    background-color: #6b7280; /* cinza */
+}
+
+.bg-white-500 {
+    background-color: #f3f4f6; /* branco claro */
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.bg-white-500 {
+    background-color: white;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Utilitários gerais */
+.flex {
+  display: flex;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-right {
+  justify-content: right;
+}
+
+.gap-07 {
+  gap: 0.7rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+/* ====== Tamanhos ====== */
+.w-20 {
+  width: 20rem;
+}
+
+.w-2-4 {
+  width: 2.4rem;
+}
+
+.w-1 {
+  width: 1rem;
+}
+
+.h-6 {
+    height: 8rem;
+}
+
+.h-90 {
+    height: 75%;
+}
+
+.h-10 {
+  height: 25%;
+}
+
+.h-2-4 {
+  height: 2.4rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+/* ====== Espaçamento ====== */
+.p-1 {
+  padding: 1rem;
+}
+
+.p-05 {
+  padding: 0.5rem;
+}
+
+/* ====== Bordas ====== */
+.radius-8 {
+  border-radius: 0.8rem;
+}
+
+.radius-full {
+  border-radius: 9999rem;
+}
+
+/* ====== Tipografia ====== */
+
+.font-bold {
+  font-weight: 700;
+}
+
+.fz-1-7 {
+  font-size: 1.7rem;
+}
+
+/* ====== Outros ====== */
+span {
+  color: #ffffff;
+}
+
+.color-gray-500 {
+  color: #242424; /* cinza */
+}
+
+.descricao {
+  font-size: 0.875rem; /* ajuste do tamanho da fonte */
+  color: #ccc; /* exemplo de cor */
+  line-height: 1.2rem;
+  
+  display: -webkit-box;       /* necessário para truncar com ... */
+  -webkit-line-clamp: 3;      /* número máximo de linhas */
+  -webkit-box-orient: vertical;
+  
+  overflow: hidden;           /* esconde o que ultrapassa */
+  text-overflow: ellipsis;    /* mostra os "..." */
+}
+
+
+/* Botão publicar (verdes escuros: 600 → 700) */
+.btn{
+  background: linear-gradient(90deg, #465943, #041700); /* verde 600 → 700 */
+  color: #f2f2f2;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(4, 23, 0, 0.4);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #4e5f4b, #40533d); /* leve clareamento no hover */
+  transform: scale(1.03);
+  box-shadow: 0 0 14px rgba(55, 71, 52, 0.6);
+}
+
+.btn:active {
+  background: linear-gradient(90deg, #041700, #000);
+  transform: scale(0.98);
+  box-shadow: 0 0 6px rgba(4, 23, 0, 0.5);
+}

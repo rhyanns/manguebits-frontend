@@ -1,0 +1,108 @@
+/* ====== LAYOUT FLEX ====== */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+/* ====== DIMENSÕES ====== */
+.w-10 {
+  width: 10rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-1 {
+  width: 1.5rem;
+}
+
+.h-02 {
+  height: 0.2rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.p-05 {
+    padding: .5rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* ====== JUSTIFICAR CONTEÚDO ====== */
+.justify-right {
+  justify-content: flex-end;
+}
+
+.gap-03 {
+  gap: 0.3rem;
+}
+
+/* ====== CORES ====== */
+.bg-black {
+  background-color: #000;
+}
+
+/* cores de fundo */
+.bg-green-400 {
+    background-color: #41503E; /* verde claro */
+}
+
+.bg-green-500 {
+    background-color: #3D4C3A; /* verde */
+}
+
+.bg-green-600 {
+    background-color: #374734; /* verde */
+}
+
+.bg-green-700 {
+    background-color: #041700; /* verde escuro */
+}
+
+.bg-gray-500 {
+    background-color: #6b7280; /* cinza */
+}
+
+.bg-white-500 {
+    background-color: #f3f4f6; /* branco claro */
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.bg-white-500 {
+    background-color: white;
+}
+
+/* ====== NAV ====== */
+.navItem {
+  list-style: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.navItem:hover {
+  color: #fff;
+  background-color:  #041700;
+}
+

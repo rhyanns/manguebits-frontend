@@ -1,0 +1,105 @@
+/*=============== post style ================= */
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.p-078 {
+  padding: 0.78rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.radius-1 {
+  border-radius: 8px;
+}
+
+.radius-2 {
+  border-radius: 12px;
+}
+
+/* Fundo suave e translúcido */
+.bg-opacity {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.bg-opacity:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Label estilizada */
+.label {
+  color: #f2f2f2;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  margin-top: 1rem;
+}
+
+/* Inputs e textarea */
+.input,
+.textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #041700;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Botão publicar (verdes escuros: 600 → 700) */
+.btn{
+  background: linear-gradient(90deg, #465943, #041700); /* verde 600 → 700 */
+  color: #f2f2f2;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(4, 23, 0, 0.4);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #4e5f4b, #40533d); /* leve clareamento no hover */
+  transform: scale(1.03);
+  box-shadow: 0 0 14px rgba(55, 71, 52, 0.6);
+}
+
+.btn:active {
+  background: linear-gradient(90deg, #041700, #000);
+  transform: scale(0.98);
+  box-shadow: 0 0 6px rgba(4, 23, 0, 0.5);
+}

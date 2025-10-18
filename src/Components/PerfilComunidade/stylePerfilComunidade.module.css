@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+.fontPixel {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* cores de fundo */
+.bg-green-400 {
+    background-color: #41503E; /* verde claro */
+}
+
+.bg-green-500 {
+    background-color: #3D4C3A; /* verde */
+}
+
+.bg-green-600 {
+    background-color: #374734; /* verde */
+}
+
+.bg-green-700 {
+    background-color: #041700; /* verde escuro */
+}
+
+.color-grey {
+  color: #a9a9a9;
+}
+
+/* Container principal */
+.flex {
+  display: flex;
+}
+
+.g-2 {
+  gap: 2.5rem
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-10rem {
+  height: 10rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-078 {
+  padding: .78rem;
+}
+.p-4 {
+  padding: 1rem;
+}
+
+.p-40px {
+  padding: 40px;
+}
+
+.plr-2 {
+  padding: 0 2.5rem;
+}
+
+.pl-2 {
+  padding-left: 2rem;
+}
+
+.g-05 {
+  gap: 0.5rem;
+}
+
+/* Tamanhos personalizados */
+.maxwidth-1080 {
+  max-width: 1080px;
+}
+
+.maxh-200 {
+  max-height: 200px;
+}
+
+.maxw-400 {
+  max-width: 400px;
+}
+
+.maxh-190 {
+  max-height: 190px;
+}
+
+.radius-1 {
+  border-radius: 1.5rem;
+}
+.w-40 {
+  width: 10rem; /* 40 * 0.25rem */
+}
+
+.h-40 {
+  height: 10rem; /* 40 * 0.25rem */
+}
+
+/* Tipografia */
+.text-4xl {
+  font-size: 2.25rem; /* ~36px */
+  line-height: 2.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Botões */
+button {
+  cursor: pointer;
+  border: none;
+  background: #e5e7eb; /* cinza claro */
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #d1d5db;
+}
+
+/* Destaques */
+span {
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.tsize-1 {
+    font-size: 1rem;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.h-2 {
+    height: 2.5rem;
+}
+
+.w-4 {
+    width: 4rem;
+}
+
+.h-4 {
+    height: 4rem;
+}
+
+.h-1-5 {
+    height: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 3rem;
+}
+
+.g-07 {
+    gap: 0.7rem;
+}
+
+/* Botão publicar (verdes escuros: 600 → 700) */
+.btn{
+  background: linear-gradient(90deg, #465943, #041700); /* verde 600 → 700 */
+  color: #f2f2f2;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(4, 23, 0, 0.4);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #4e5f4b, #40533d); /* leve clareamento no hover */
+  transform: scale(1.03);
+  box-shadow: 0 0 14px rgba(55, 71, 52, 0.6);
+}
+
+.btn:active {
+  background: linear-gradient(90deg, #041700, #000);
+  transform: scale(0.98);
+  box-shadow: 0 0 6px rgba(4, 23, 0, 0.5);
+}
