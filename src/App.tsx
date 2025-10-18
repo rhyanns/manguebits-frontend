@@ -1,10 +1,10 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./paginas/Home/Home";
-import AderirComunidade from "./paginas/AderirComunidade/AderirComunidade";
-import Comunidades from "./paginas/Comunidade/Comunidade";
-import Login from "./paginas/Participante/Login";
-import Register from "./paginas/Participante/Register";
+import Home from "./pages/Home/Home";
+import AderirComunidade from "./pages/AderirComunidade/AderirComunidade";
+import Comunidades from "./pages/Comunidade/Comunidade";
+import Login from "./pages/Participante/Login";
+import Register from "./pages/Participante/Register";
 
 
 

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import Post from "../../Components/Post/Post";
-import Header from "../../Components/Header/Header";
-import NavBar from "../../Components/NavBar/NavBar";
-import PerfilComunidade from "../../Components/PerfilComunidade/PerfilComunidade";
-import FormPost from "../../Components/FormPost/FormPost";
+import Post from "../../components/Post/Post";
+import Header from "../../components/Header/Header";
+import NavBar from "../../components/NavBar/NavBar";
+import PerfilComunidade from "../../components/PerfilComunidade/PerfilComunidade";
+import FormPost from "../../components/FormPost/FormPost";
 import { communities } from "../../assets/data/dataCommunities";
 import { posts as initialPosts } from "../../assets/data/dataPost";
 import styles from "./styleComunidade.module.css";

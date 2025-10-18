@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Header from "../../Components/Header/Header";
+import Header from "../../components/Header/Header";
 import styles from "./styleHome.module.css";
-import NavBar from "../../Components/NavBar/NavBar";
-import Post from "../../Components/Post/Post";
+import NavBar from "../../components/NavBar/NavBar";
+import Post from "../../components/Post/Post";
 import {posts} from "../../assets/data/dataPost";
 
 function AderirComunidade() {
