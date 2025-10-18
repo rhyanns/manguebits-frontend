@@ -1,7 +1,9 @@
 import { useState, type ChangeEvent, type JSX } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { User, Mail, IdCard, Lock } from "lucide-react"; // Ícones utilizados nos campos do formulário
 import styles from "./styleRegister.module.css";
+import type { Participante } from "../../types/Participante";
+import api from "../../services/api"
 
 export default function TelaCadastro(): JSX.Element {
   const [nome, setNome] = useState<string>("");
@@ -9,6 +11,28 @@ export default function TelaCadastro(): JSX.Element {
   const [cpf, setCpf] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [confirmarSenha, setConfirmarSenha] = useState<string>("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (senha !== confirmarSenha) {
+      alert("As senhas não conferem!");
+      return;
+    }
+
+    const novoParticipante: Participante = { nome, cpf, email, senha };
+
+    try {
+      const response = await api.post("/participantes", novoParticipante);
+      console.log("Participante criado:", response.data);
+      alert("Cadastro realizado com sucesso!");
+      navigate("/");
+    } catch (error: any) {
+      console.error("Erro ao criar participante:", error);
+      alert(error.response?.data?.message || "Erro no cadastro");
+    }
+  };
 
   const handleNomeChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setNome(e.target.value);
@@ -53,7 +77,7 @@ export default function TelaCadastro(): JSX.Element {
           <h2 className={styles["cadastro-title"]}>Crie sua conta</h2>
           <p className={styles["cadastro-subtitle"]}>Informe seus dados</p>
 
-          <form className={styles["cadastro-form"]}>
+          <form className={styles["cadastro-form"]} onSubmit={handleSubmit}>
             <div className={styles["cadastro-input-group"]}>
               <User className={styles["cadastro-input-icon"]} size={18} />
               <input
