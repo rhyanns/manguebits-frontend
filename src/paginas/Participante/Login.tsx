@@ -57,7 +57,7 @@ export default function LoginPage(): JSX.Element {
           <div className={styles["separator"]}></div>
 
           <p className={styles["register-text"]}>
-            Ainda não tem conta? <Link to="/cadastro">Cadastre-se</Link>
+            Ainda não tem conta? <Link to="/register">Cadastre-se</Link>
           </p>
         </div>
       </div>
