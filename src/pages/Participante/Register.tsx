@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { User, Mail, IdCard, Lock } from "lucide-react"; // Ícones utilizados nos campos do formulário
 import styles from "./styleRegister.module.css";
 import type { Participante } from "../../types/Participante";
-import api from "../../services/api"
+import { registerParticipante } from "../../services/helpers/participantes";
 
 export default function TelaCadastro(): JSX.Element {
   const [nome, setNome] = useState<string>("");
@@ -24,7 +24,7 @@ export default function TelaCadastro(): JSX.Element {
     const novoParticipante: Participante = { nome, cpf, email, senha };
 
     try {
-      const response = await api.post("/participantes", novoParticipante);
+      const response = await registerParticipante(novoParticipante);
       console.log("Participante criado:", response.data);
       alert("Cadastro realizado com sucesso!");
       navigate("/");

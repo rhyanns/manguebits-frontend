@@ -1,18 +1,33 @@
 import { useState, type ChangeEvent, type JSX } from "react";
 import { User, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./styleLogin.module.css";
+import type { Login } from "../../types/Participante";
+import { loginParticipante } from "../../services/helpers/participantes";
 
 export default function LoginPage(): JSX.Element {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
 
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setEmail(e.target.value);
-  };
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => setEmail(e.target.value);
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>): void => setPassword(e.target.value);
 
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    setPassword(e.target.value);
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const login: Login = { email, senha: password };
+
+    try {
+      const response = await loginParticipante(login);
+      console.log("Login bem-sucedido:", response.data);
+
+      alert(`Bem-vindo, ${response.data.nome}!`);
+      navigate("/");
+    } catch (error: any) {
+      console.error("Erro no login:", error);
+      alert(error.response?.data?.message || "Credenciais inválidas");
+    }
   };
 
   return (
@@ -31,7 +46,7 @@ export default function LoginPage(): JSX.Element {
             <p className={styles["subtitle"]}>Conecte-se à comunidade</p>
           </div>
 
-          <div className={styles["login-fields"]}>
+          <form className={styles["login-fields"]} onSubmit={handleLogin}>
             <div className={styles["input-group"]}>
               <User className={styles["icon"]} size={18} />
               <input
@@ -39,6 +54,7 @@ export default function LoginPage(): JSX.Element {
                 placeholder="Seu e-mail ou CPF"
                 value={email}
                 onChange={handleEmailChange}
+                required
               />
             </div>
             <div className={styles["input-group"]}>
@@ -48,11 +64,12 @@ export default function LoginPage(): JSX.Element {
                 placeholder="Sua senha"
                 value={password}
                 onChange={handlePasswordChange}
+                required
               />
             </div>
-          </div>
 
-          <button className={styles["login-button"]}>ENTRAR</button>
+            <button type="submit" className={styles["login-button"]}>ENTRAR</button>
+          </form>
 
           <div className={styles["separator"]}></div>
 
