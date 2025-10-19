@@ -1,0 +1,170 @@
+/* Centralizar o card e aplica o fundo em degradê */
+.cadastro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #374734, #3d4c3a);
+  font-family: "Pixelify Sans"; /* Aplica a fonte ao container */
+}
+
+/* Card principal que divide o conteúdo em duas colunas. */
+.cadastro-card {
+  display: flex;
+  width: 800px;
+  max-width: 95%;
+  border-radius: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+/* Lado esquerda do card */
+.cadastro-left {
+  background: #3d4c3a;
+  color: #fff;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Titulo abaixo da logotipo */
+.cadastro-logo {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Primeiro texto abaixo do titulo da logotipo */
+.cadastro-welcome {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Segundo texto abaixo do titulo da logotipo */
+.cadastro-subtext {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+/* Botão entrar */
+.cadastro-login-btn {
+  width: 100%;
+  padding: 0.4rem;
+  background: #fff;
+  color: #3d4c3a;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 1.75rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 0.5rem 0;
+}
+
+/* Reflexo do botão entrar */
+.cadastro-login-btn:hover {
+  background: #dadada;
+  color: #3d4c3a;
+}
+
+/* Logotipo */
+.cadastro-logo-img {
+  margin-top: 1.5rem;
+  width: 80px; /*ajusta tamanho horizontal da logo*/
+  height: 80px; /*ajusta tamanho vertical da logo*/
+  border-radius: 20%; /* ajuste das bordas */
+  align-self: center;
+}
+
+/* Coluna Direita */
+.cadastro-right {
+  background: #ffffff;
+  color: #fff;
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Titulo do lado direito do card */
+.cadastro-title {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: #3d4c3a;
+}
+
+/* Primeiro texto abaixo do titulo do lado direito do card */
+.cadastro-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+/* Agrupamento dos campos do formulário */
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Campos do formulário*/
+.cadastro-input-group {
+  display: flex;
+  align-items: center;
+  background: #333;
+  padding: 0.75rem 0.75rem;
+  /* border-radius: 6px; */
+}
+
+/* Icones dos campos do formulário */
+.cadastro-input-icon {
+  margin-right: 0.6rem;
+  color: #9ca3af;
+}
+
+/* Texto digitado no campo do formulário */
+.cadastro-input-group input {
+  border: none;
+  background: transparent;
+  color: #fff;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+}
+
+/* Estilo dos nomes dos campos do formulário  */
+.cadastro-input-group input::placeholder {
+  color: #9ca3af;
+}
+
+/* Botão cadastrar */
+.cadastro-submit {
+  width: 100%;
+  padding: 0.5rem;
+  background: #3d4c3a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 1.75rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin: 0.5rem 0;
+}
+
+/* Reflexo do botão cadastrar */
+.cadastro-submit:hover {
+  background: #374734;
+}
+
+/* Garante que o texto de entrada use a mesma fonte do card */
+.cadastro-input-group input {
+  font-family: "Pixelify Sans";
+}
+
+/* Garante a mesma fonte nos nomes dos campos do formulário */
+.cadastro-input-group input::placeholder {
+  font-family: "Pixelify Sans";
+}
