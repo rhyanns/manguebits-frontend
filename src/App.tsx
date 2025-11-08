@@ -5,6 +5,7 @@ import AderirComunidade from "./pages/AderirComunidade/AderirComunidade";
 import Comunidades from "./pages/Comunidade/Comunidade";
 import Login from "./pages/Participante/Login";
 import Register from "./pages/Participante/Register";
+import CriarComunidade from "./pages/CriarComunidade/CriarComunidade";
 
 
 
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/criar" element={<CriarComunidade />} />
         <Route path="/aderir" element={<AderirComunidade />} />
         <Route path="/comunidade/:id" element={<Comunidades />} />
         <Route path="/login" element={<Login />} />

@@ -95,14 +95,18 @@
   list-style: none;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  color: #000;
+  color: white;
   cursor: pointer;
   transition: 0.2s ease;
   width: 100%;
 }
 
 .navItem:hover {
-  color: #fff;
+  color: white;
   background-color:  #041700;
+}
+
+.navItem a:visited {
+  color: white;
 }
 

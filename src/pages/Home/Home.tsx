@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Header from "../../components/Header/Header";
+import Header from "../../Components/Header/Header";
 import styles from "./styleHome.module.css";
-import NavBar from "../../components/NavBar/NavBar";
-import Post from "../../components/Post/Post";
+import NavBar from "../../Components/NavBar/NavBar";
+import Post from "../../Components/Post/Post";
 import {posts} from "../../assets/data/dataPost";
 
 function AderirComunidade() {
@@ -40,7 +40,7 @@ function AderirComunidade() {
           <div className={`${styles.flex} ${styles['flex-col']} ${styles['items-center']} ${styles['w-full']} ${styles['h-full']} ${styles['pt-2']} ${styles['gap-2']}  ${menuOpen ? styles["padding-right-10"] : ""}`}>
             <div className={`${styles['border']} ${styles.flex} ${styles['items-center']} ${styles["mt-5"]} ${styles['bg-green-370']} ${styles['minh-5rem']} ${styles['w-full']} ${styles['minw-370px']} ${styles['maxw-1080px']} ${styles['color-white']} ${styles.fontPixel} ${styles['radius-2-2']}`}>
                 <div className={`${styles.flex} ${styles['items-center']} ${styles['p-4']} ${styles['plr-4']} ${styles['w-full']}`}>
-                  <select className="" name="" id="">
+                  <select className={`${styles['display-none']}`} name="" id="">
                     <option value="" disabled>Ordernar Por</option>
                     <option value="">Melhores</option>
                   </select>
