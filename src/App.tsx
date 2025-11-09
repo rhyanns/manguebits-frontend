@@ -18,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/criar" element={<CriarComunidade />} />
         <Route path="/aderir" element={<AderirComunidade />} />
+        <Route path="/minhas-comunidades" element={<AderirComunidade />} />
         <Route path="/criar-comunidade" element={<CriarComunidade />} />
         <Route path="/comunidade/:id" element={<Comunidade />} />
         <Route path="/login" element={<Login />} />
