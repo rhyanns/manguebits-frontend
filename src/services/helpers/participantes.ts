@@ -12,3 +12,7 @@ export const loginParticipante = (login: Login) => {
 export const addParticipanteAComunidade = (idParticipante : number, idComunidade : number) => {
   return api.post(`/participantes/${idParticipante}/comunidades/${idComunidade}`);
 };
+
+export const listarComunidadesdoParticipante = (idParticipante : number) => {
+  return api.get(`/participantes/${idParticipante}/comunidades`);
+};
