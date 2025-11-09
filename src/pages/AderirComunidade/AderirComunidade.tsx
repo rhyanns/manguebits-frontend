@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import CardComunidade from "../../components/CardComunidade/CardComunidade";
 import styles from "./styleAderirComunidade.module.css";
 import NavBar from "../../components/NavBar/NavBar";
 import { communities } from "../../assets/data/dataCommunities";
 import type { Community } from "../../assets/data/dataCommunities";
+import { getComunidades } from "../../services/helpers/comunidade";
 
 function AderirComunidade() {
   const [menuOpen, setMenuOpen] = useState(true);
@@ -17,6 +18,21 @@ function AderirComunidade() {
       )
     );
   };
+
+    useEffect(() => {
+    const fetchComunidades = async () => {
+      try {
+        const data = await getComunidades();
+        console.log("Trazendo comunidades:", data);
+        setComunidades(data);
+      } catch (error: any) {
+        console.error("Erro ao trazer comunidades:", error);
+        alert(error.response?.data?.message || "Erro ao buscar comunidades");
+      }
+    };
+
+    fetchComunidades();
+  }, []);
 
   return (
     <div className={`${styles.flex} ${styles['flex-col']} ${styles['w-full']} ${styles['bg-green-300']} ${styles.hidden} ${styles['dvh-full']} ${styles.fontPixel}`}>
@@ -39,13 +55,13 @@ function AderirComunidade() {
             <div className={`${styles['grid-personalizado']} ${styles['mobile-scroll']} ${styles['w-full']} ${styles['pb-2']}`}>
               {comunidades.map(comunidade => (
                 <CardComunidade
-                  key={comunidade.id}
+                  id={comunidade.id}
                   nome={comunidade.nome}
                   descricao={comunidade.descricao}
                   categoria={comunidade.categoria}
-                  popularidade={comunidade.popularidade}
-                  seguindo={comunidade.seguindo}
-                  avatarUrl={comunidade.avatarUrl}
+                  // popularidade={comunidade.popularidade}
+                  // seguindo={comunidade.seguindo}
+                  // avatarUrl={comunidade.avatarUrl}
                   onToggleSeguir={() => toggleSeguir(comunidade.id)}
                 />
               ))}

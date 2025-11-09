@@ -43,10 +43,6 @@
   display: flex;
 }
 
-.display-none {
-  display: none;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -90,7 +86,7 @@
   height: 100%;
 }
 
-.hminh-5rem  {
+.minh-5rem {
   min-height: 5rem;
 }
 
@@ -120,6 +116,10 @@
 
 .gap-1{
   gap: 1rem;
+}
+
+.gap-2{
+  gap: 2rem;
 }
 
 .pt-1 {

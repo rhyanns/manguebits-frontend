@@ -1,24 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Post from "../../components/Post/Post";
 import Header from "../../components/Header/Header";
 import NavBar from "../../components/NavBar/NavBar";
 import PerfilComunidade from "../../components/PerfilComunidade/PerfilComunidade";
 import FormPost from "../../components/FormPost/FormPost";
-import { communities } from "../../assets/data/dataCommunities";
-import { posts as initialPosts } from "../../assets/data/dataPost";
 import styles from "./styleComunidade.module.css";
+import { getComunidade } from "../../services/helpers/comunidade";
+import type { Community } from "../../assets/data/dataCommunities";
 
-function Comunidades() {
+function Comunidade() {
   const [menuOpen, setMenuOpen] = useState(true);
-  const [posts, setPosts] = useState(initialPosts);
+  const [community, setCommunity] = useState<Community | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams<{ id: string }>();
   const communityId = Number(id);
 
-  const community = communities.find((c) => c.id === communityId);
+  useEffect(() => {
+    const fetchCommunity = async () => {
+      try {
+        const data = await getComunidade(communityId);
+        setCommunity(data);
+      } catch (error) {
+        console.error("Erro ao buscar comunidade:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // comunidade não existe
+    if (communityId) fetchCommunity();
+  }, [communityId]);
+
+  if (loading) {
+    return <div>Carregando comunidade...</div>;
+  }
+
   if (!community) {
     return (
       <div
@@ -40,7 +56,7 @@ function Comunidades() {
             <div
               className={`${styles.flex} ${styles["items-center"]} ${styles["justify-center"]} ${styles["w-full"]} ${styles["h-screen"]} ${styles["bg-green-300"]} ${styles.fontPixel} ${styles["text-white"]}`}
             >
-              Grupo não encontrado
+              Comunidade não encontrada
             </div>
           </div>
         </div>
@@ -48,8 +64,7 @@ function Comunidades() {
     );
   }
 
-  const filteredPosts = posts.filter((p) => p.idComunidade === communityId);
-
+  // Página principal
   return (
     <div
       className={`${styles.flex} ${styles["flex-col"]} ${styles["w-full"]} ${styles["bg-green-300"]} ${styles.hidden} ${styles["dvh-full"]} ${styles.fontPixel}`}
@@ -79,32 +94,13 @@ function Comunidades() {
             <FormPost
               communityId={communityId}
               community={community}
-              posts={posts}
-              setPosts={setPosts}
+              posts={[]} // sem posts por enquanto
+              setPosts={() => {}} // placeholder
             />
 
-
-            {filteredPosts.length > 0 ? (
-              filteredPosts.map((p, index) => (
-                <Post
-                  key={index}
-                  nomeGrupo={p.nomeGrupo}
-                  nomePerfil={p.nomePerfil}
-                  legenda={p.legenda}
-                  post={p.post}
-                  tipo={p.tipo}
-                  dataPostagem={p.dataPostagem}
-                  curtidas={p.curtidas}
-                  comentarios={p.comentarios}
-                  modo="home"
-                  idGroup={p.idComunidade}
-                />
-              ))
-            ) : (
-              <div className={styles["no-posts"]}>
-                Nenhum post ainda nessa comunidade.
-              </div>
-            )}
+            <div className={styles["no-posts"]}>
+              Nenhum post ainda nessa comunidade.
+            </div>
           </div>
         </div>
       </div>
@@ -112,4 +108,4 @@ function Comunidades() {
   );
 }
 
-export default Comunidades;
+export default Comunidade;

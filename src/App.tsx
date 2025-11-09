@@ -2,9 +2,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import AderirComunidade from "./pages/AderirComunidade/AderirComunidade";
-import Comunidades from "./pages/Comunidade/Comunidade";
+//import CriarComunidade from "./pages/Comunidade/CriarComunidade";
+import Comunidade from "./pages/Comunidade/Comunidade";
 import Login from "./pages/Participante/Login";
 import Register from "./pages/Participante/Register";
+import CriarComunidade from "./pages/CriarComunidade/CriarComunidade";
 
 
 
@@ -14,8 +16,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/criar" element={<CriarComunidade />} />
         <Route path="/aderir" element={<AderirComunidade />} />
-        <Route path="/comunidade/:id" element={<Comunidades />} />
+        <Route path="/minhas-comunidades" element={<AderirComunidade />} />
+        <Route path="/criar-comunidade" element={<CriarComunidade />} />
+        <Route path="/comunidade/:id" element={<Comunidade />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

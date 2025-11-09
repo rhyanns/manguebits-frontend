@@ -41,6 +41,7 @@ function NavBar({ onToggle }: NavBarProps) {
       >
         <li className={styles.navItem}><Link to="/">Home</Link></li>
         <li className={styles.navItem}> <Link to="/aderir">Aderir Comunidade</Link></li>
+        <li className={styles.navItem}> <Link to="/criar-comunidade">Criar Comunidade</Link></li>
         <li className={styles.navItem}>Services</li>
         <li className={styles.navItem}>Contact</li>
       </ul>
