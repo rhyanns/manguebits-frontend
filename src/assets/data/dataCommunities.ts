@@ -3,7 +3,7 @@
 import type { Categoria } from "../../types/Comunidade";
 
 export interface Community {
-  // id: number;
+  id: number;
   nome: string;
   descricao: string;
   administrador: string;

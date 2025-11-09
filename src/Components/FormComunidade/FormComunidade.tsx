@@ -7,7 +7,6 @@ import type { Categoria } from "../../types/Comunidade";
 
 
 function FormCommunity(): JSX.Element {
-  const [showForm, setShowForm] = useState(false);
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
   const [categoria, setCategoria] = useState<Community["categoria"]>("Outros");

@@ -55,13 +55,13 @@ function AderirComunidade() {
             <div className={`${styles['grid-personalizado']} ${styles['mobile-scroll']} ${styles['w-full']} ${styles['pb-2']}`}>
               {comunidades.map(comunidade => (
                 <CardComunidade
-                  key={comunidade.id}
+                  id={comunidade.id}
                   nome={comunidade.nome}
                   descricao={comunidade.descricao}
                   categoria={comunidade.categoria}
-                  popularidade={comunidade.popularidade}
-                  seguindo={comunidade.seguindo}
-                  avatarUrl={comunidade.avatarUrl}
+                  // popularidade={comunidade.popularidade}
+                  // seguindo={comunidade.seguindo}
+                  // avatarUrl={comunidade.avatarUrl}
                   onToggleSeguir={() => toggleSeguir(comunidade.id)}
                 />
               ))}
