@@ -1,23 +1,18 @@
 // src/data/dataCommunities.ts
 
+import type { Categoria } from "../../types/Comunidade";
+
 export interface Community {
-  id: number;
+  // id: number;
   nome: string;
   descricao: string;
-  categoria:
-    | "Tecnologia"
-    | "Games"
-    | "Arte"
-    | "Esportes"
-    | "Música"
-    | "Cinema"
-    | "Literatura"
-    | "Outros";
-  popularidade: number;
-  seguindo: boolean;
-  seguidores: number; // ✅ Novo campo
-  avatarUrl: string;
-  bannerUrl: string;
+  administrador: string;
+  categoria: Categoria;
+  // popularidade?: number;
+  // seguindo?: boolean;
+  // seguidores?: number;
+  // avatarUrl?: string;
+  // bannerUrl?: string;
 }
 
 export const communities: Community[] = [

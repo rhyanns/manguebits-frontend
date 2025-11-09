@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import AderirComunidade from "./pages/AderirComunidade/AderirComunidade";
-import CriarComunidade from "./pages/Comunidade/CriarComunidade";
+//import CriarComunidade from "./pages/Comunidade/CriarComunidade";
 import Comunidades from "./pages/Comunidade/Comunidade";
 import Login from "./pages/Participante/Login";
 import Register from "./pages/Participante/Register";

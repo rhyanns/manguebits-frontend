@@ -22,6 +22,8 @@ export default function LoginPage(): JSX.Element {
       const response = await loginParticipante(login);
       console.log("Login bem-sucedido:", response.data);
 
+      localStorage.setItem("user", JSON.stringify(response.data));
+
       alert(`Bem-vindo, ${response.data.nome}!`);
       navigate("/");
     } catch (error: any) {
