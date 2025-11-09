@@ -8,3 +8,7 @@ export const registerParticipante = (participante: Participante) => {
 export const loginParticipante = (login: Login) => {
   return api.post("/participantes/login", login);
 };
+
+export const addParticipanteAComunidade = (idParticipante : number, idComunidade : number) => {
+  return api.post(`/participantes/${idParticipante}/comunidades/${idComunidade}`);
+};
