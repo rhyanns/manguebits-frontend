@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./styleCardComunidade.module.css";
+import { addParticipanteAComunidade } from "../../services/helpers/participantes"; // ajuste o caminho se precisar
+
 import type { Community } from "../../assets/data/dataCommunities";
 
 interface CardComunidadeProps extends Community {
@@ -22,6 +24,33 @@ function CardComunidade({
     navigate(`/comunidade/${id}`);
     console.log("ID recebido no CardComunidade:", id);
   };
+
+  const handleSeguir = async () => {
+  try {
+    const userData = localStorage.getItem("user");
+
+    if (!userData) {
+      console.error("Nenhum usuário encontrado!");
+      return;
+    }
+
+    const user = JSON.parse(userData);
+    const idParticipante = user.id;
+
+    if (!idParticipante) {
+      alert("Você precisa estar logado para seguir uma comunidade.");
+      return;
+    }
+
+    await addParticipanteAComunidade(Number(idParticipante), id);
+
+    console.log(`Participante ${idParticipante} seguiu a comunidade ${id}`);
+    onToggleSeguir();
+  } catch (error) {
+    console.error("Erro ao seguir comunidade:", error);
+    alert("Não foi possível seguir a comunidade.");
+  }
+};
 
   return (
     <div
@@ -64,12 +93,12 @@ function CardComunidade({
       <div
         className={`${styles.flex} ${styles["align-center"]} ${styles["w-full"]} ${styles["justify-right"]}`}
       >
-        <button
-          className={`${styles["btn"]} ${styles["font-bold"]} ${styles["radius-5"]} ${styles["h-full"]} ${styles["bg-green-500"]} ${styles["color-gray-500"]}`}
-          onClick={onToggleSeguir}
-        >
-          {seguindo ? "Seguindo" : "Seguir"}
-        </button>
+      <button
+        className={`${styles["btn"]} ${styles["font-bold"]} ${styles["radius-5"]} ${styles["h-full"]} ${styles["bg-green-500"]} ${styles["color-gray-500"]}`}
+        onClick={handleSeguir}
+      >
+        {seguindo ? "Seguindo" : "Seguir"}
+      </button>
       </div>
     </div>
   );

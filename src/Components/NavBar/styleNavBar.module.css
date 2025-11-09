@@ -110,3 +110,20 @@
   color: white;
 }
 
+.dropdownList {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dropdownItem a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.dropdownItem a:hover {
+  color: #00ff7f;
+  text-decoration: underline;
+}
