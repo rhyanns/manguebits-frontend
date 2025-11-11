@@ -6,7 +6,7 @@ import styles from "./stylePost.module.css";
 interface PostProps {
   nomeGrupo: string;
   nomePerfil: string;
-  legenda: string;
+  legenda?: string;
   post: string;
   tipo: "texto" | "imagem";
   dataPostagem: string;

@@ -91,9 +91,7 @@ function AderirComunidade() {
                       <Post
                         key={p.idPost}
                         nomeGrupo={comunidade.nome}
-                        // agora o nome do perfil vem do localStorage
                         nomePerfil={usuarioNome}
-                        legenda={p.conteudo}
                         post={p.conteudo}
                         tipo="texto"
                         dataPostagem={p.createdAt}

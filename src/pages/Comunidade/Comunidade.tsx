@@ -110,7 +110,6 @@ function Comunidade() {
                   key={p.idPost}
                   nomeGrupo={community.nome}
                   nomePerfil={community.administrador}
-                  legenda={p.conteudo}
                   post={p.conteudo}
                   tipo="texto"
                   dataPostagem={p.createdAt}
