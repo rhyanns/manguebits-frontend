@@ -7,3 +7,7 @@ export const createPost = (idComunidade: number, data: { conteudo: string }) => 
 export const retornarPostsDeTodasAsComunidades = () => {
   return api.get(`comunidades/v1/fetchPosts`);
 };
+
+export const updatePost = (idPost: number, data: { curtidas: number }) => {
+  return api.put(`posts/v1/${idPost}`, data);
+};

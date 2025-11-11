@@ -90,6 +90,7 @@ function AderirComunidade() {
                     comunidade.posts.map((p) => (
                       <Post
                         key={p.idPost}
+                        idPost={p.idPost}
                         nomeGrupo={comunidade.nome}
                         nomePerfil={usuarioNome}
                         post={p.conteudo}
