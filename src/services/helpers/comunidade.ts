@@ -15,3 +15,8 @@ export const getComunidade = async (id: number) => {
   const response = await api.get(`/comunidades/v1/${id}`);
   return response.data; // retorna apenas os dados da resposta
 };
+
+export const getPostDeUmaComunidadeEspecifica = async (idComunidade: number) => {
+  const response = await api.get(`/comunidades/v1/fetchPosts/${idComunidade}`);
+  return response.data; // retorna apenas os dados da resposta
+};
