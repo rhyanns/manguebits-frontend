@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Header from "../../Components/Header/Header";
-import CardComunidade from "../../Components/CardComunidade/CardComunidade";
+import Header from "../../components/Header/Header";
+import CardComunidade from "../../components/CardComunidade/CardComunidade";
 import styles from "./styleCriarComunidade.module.css";
-import NavBar from "../../Components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import { communities } from "../../assets/data/dataCommunities";
 import type { Community } from "../../assets/data/dataCommunities";
-import FormComunidade from "../../Components/FormComunidade/FormComunidade";
+import FormComunidade from "../../components/FormComunidade/FormComunidade";
 
 function CriarComunidade() {
   const [menuOpen, setMenuOpen] = useState(true);

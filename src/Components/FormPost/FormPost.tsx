@@ -1,53 +1,59 @@
-// ...existing code...
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./styleFormPost.module.css";
+import { createPost } from "../../services/helpers/posts";
+import type { Posts } from "../../types/Posts";
 
 interface FormPostProps {
   communityId: number;
-  community: { nome: string };
-  posts: any[];
-  setPosts: React.Dispatch<React.SetStateAction<any[]>>;
+  posts: Posts[];
+  setPosts: React.Dispatch<React.SetStateAction<Posts[]>>;
 }
 
-function FormPost({ communityId, community, posts, setPosts }: FormPostProps) {
-  const [legenda, setLegenda] = useState("");
-  const [postConteudo, setPostConteudo] = useState("");
-  const [tipo, setTipo] = useState<"texto" | "imagem">("texto");
+function FormPost({ communityId, posts, setPosts }: FormPostProps) {
+  const [conteudo, setConteudo] = useState("");
   const [showForm, setShowForm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!legenda.trim() || !postConteudo.trim()) {
-      alert("Preencha todos os campos antes de publicar!");
+    if (!conteudo.trim()) {
+      console.warn("⚠️ Campo de conteúdo vazio. Abortando envio.");
+      alert("Digite algo antes de publicar!");
       return;
     }
 
-    const novoPost = {
-      idComunidade: communityId,
-      nomeGrupo: community.nome,
-      nomePerfil: "Ryan Vitor",
-      legenda,
-      post: postConteudo,
-      tipo,
-      dataPostagem: new Date().toISOString(),
-      curtidas: 0,
-      comentarios: 0,
-    };
+    try {
+      setLoading(true);
 
-    setPosts([novoPost, ...posts]);
-    setLegenda("");
-    setPostConteudo("");
-    setTipo("texto");
-    setShowForm(false);
+      const response = await createPost(communityId, { conteudo });
+      const novoPost: Posts = response.data;
+      setPosts([novoPost, ...posts]);
+      console.log("Lista de posts atualizada:", [novoPost, ...posts]);
+      setConteudo("");
+      setShowForm(false);
+    } catch (error: any) {
+
+      if (error.response) {
+        console.error("Erro detalhado da API:", error.response.data);
+        console.error("Status HTTP:", error.response.status);
+      }
+
+      alert("Não foi possível criar o post. Tente novamente.");
+    } finally {
+      setLoading(false);
+      console.log("Finalizando processo de criação de post.");
+    }
   };
 
   return (
     <>
       <div className={`${styles.flex} ${styles["p-078"]} ${styles["mb-2"]}`}>
         <button
-          onClick={() => setShowForm(!showForm)}
+          onClick={() => {
+            console.log("Botão '+ Post' clicado. Estado atual:", !showForm);
+            setShowForm(!showForm);
+          }}
           className={`${styles["btn-publicar"]} ${styles["btn"]} ${styles["p-1"]} ${styles["radius-2"]}`}
         >
           {showForm ? "Cancelar" : "+ Post"}
@@ -60,32 +66,23 @@ function FormPost({ communityId, community, posts, setPosts }: FormPostProps) {
             onSubmit={handleSubmit}
             className={`${styles.flex} ${styles["flex-col"]} ${styles["w-full"]} ${styles["p-2"]} ${styles["radius-2"]} ${styles["bg-opacity"]}`}
           >
-            <label className={styles["label"]}>Título:</label>
-            <input
-              type="text"
-              value={legenda}
-              onChange={(e) => setLegenda(e.target.value)}
-              placeholder="Digite um título..."
-              className={`${styles["input"]} ${styles["p-1"]} ${styles["radius-1"]}`}
-            />
-
-            <label className={styles["label"]}>
-              {tipo === "imagem" ? "URL da imagem:" : "Conteúdo do post:"}
-            </label>
+            <label className={styles["label"]}>Conteúdo do post:</label>
             <textarea
-              value={postConteudo}
-              onChange={(e) => setPostConteudo(e.target.value)}
-              placeholder={
-                tipo === "imagem" ? "Cole a URL da imagem..." : "Escreva seu post..."
-              }
+              value={conteudo}
+              onChange={(e) => {
+                setConteudo(e.target.value);
+                console.log("Conteúdo digitado:", e.target.value);
+              }}
+              placeholder="Escreva seu post..."
               className={`${styles["textarea"]} ${styles["p-1"]} ${styles["radius-2"]}`}
             />
 
             <button
               type="submit"
+              disabled={loading}
               className={`${styles["btn-publicar"]} ${styles["btn"]} ${styles["mt-2"]}`}
             >
-              Publicar
+              {loading ? "Publicando..." : "Publicar"}
             </button>
           </form>
         </div>
@@ -95,4 +92,3 @@ function FormPost({ communityId, community, posts, setPosts }: FormPostProps) {
 }
 
 export default FormPost;
-// ...existing code...
